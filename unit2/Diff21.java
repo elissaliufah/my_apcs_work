@@ -11,7 +11,6 @@ public class Diff21{
 	}
 
 	public static void main(String[] args){
-		diff21(32);
 		System.out.println(diff21(32));
 	}
 }
