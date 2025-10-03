@@ -9,9 +9,23 @@ public class Diff21{
 		return a;
 	  }
 	}
+	
+	public static void testDiff21(int n, int expected){
+		int result = diff21(n);
+		
+		System.out.println("Number: " + n + "Result: " + result + "Expected: " + expected);
+		
+		if (result == expected){
+			System.out.println("Great");
+		}else{
+			System.out.println("Bad");
+		}
+	}
 
 	public static void main(String[] args){
-		System.out.println(diff21(32));
+		testDiff21(8, 13);
+		testDiff21(21, 0);
+		testDiff21(32, 22);
 	}
 }
 
