@@ -1,14 +1,9 @@
 public class Vampire{
 	
 	public static boolean isVampire(float hour, boolean awake){
-	 if(!awake && (hour >= 6 || hour <=22)){
-		return(true);
-	 }else if(awake && (hour < 6 || hour >22)){
-		return(true);
-	 }else{
-		return(false);
-	 }
-	}
+	 return((!awake && (hour >= 6 || hour <=22))||(awake && (hour < 6 || hour >22)));
+	 
+    }
 	
 	public static void testisVampire(float hour, boolean awake, boolean expected){
 		boolean result = isVampire(hour, awake);
