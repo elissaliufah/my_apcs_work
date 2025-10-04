@@ -1,50 +1,33 @@
-public class Vampire
-{
-    // The function you want to implement
-
-    public static boolean isVampire(float hour, 
-                                        boolean awake) 
-    {
-        // Remember that a comparison returns a boolean.
-	return ((!awake && (hour > 6 || hour < 22)) || (awake && (hour < 6 || hour > 22))); 
-    }
-
-    // The test function, which takes as input:
-    // 1) arguments for the monkeyTrouble() function
-    // 2) the expected output from the function
-
-    public static void testisVampire(float hour,
-                                         boolean awake, 
-                                         boolean expected)
-    {
-        boolean result = isVampire(hour,
-									 awake);
-        
-        System.out.print("Hour: " + hour +
-                " Awake: " + awake + 
-                " expected: " + expected +
-                " result: " + result + " ");
-
-        if (result == expected)
-            System.out.println("YAY!");
-        else
-            System.out.println("Boohoo!");
-    }
-
-    // Run several unit tests in the main() function.
-
-    public static void main(String[] args)
-    {
-        testisVampire(10,true,false);
-        testisVampire(23,true,true);
-        testisVampire(15,false,true);
-        testisVampire(16,false,true);
-        testisVampire(6,true,false);
-        testisVampire(11,true,false);
-        testisVampire(3,true,true);
-
-
-    }
+public class Vampire{
+	
+	public static boolean isVampire(float hour, boolean awake){
+	 if(!awake && (hour >= 6 || hour <=22)){
+		return(true);
+	 }else if(awake && (hour < 6 || hour >22)){
+		return(true);
+	 }else{
+		return(false);
+	 }
+	}
+	
+	public static void testisVampire(float hour, boolean awake, boolean expected){
+		boolean result = isVampire(hour, awake);
+		
+		System.out.println("Hour: " + hour + "Awake: " + awake + "Result: " + result + "Expected: " + expected);
+		
+		if(result == expected){
+			System.out.println("omg she's acc a vampire");
+		}else{
+			System.out.println("thank god she's not a bleh bleh bleh");
+		}
+	}
+	
+	public static void main(String[] args){
+		testisVampire(6, false, true);
+		testisVampire(11, false, true);
+		testisVampire(6, true, false);
+		testisVampire(5, true, true);
+		testisVampire(23, true, true);
+		testisVampire(12, true, false);
+	}
 }
-
-i did it wrong so make sure u have the right conditionals
