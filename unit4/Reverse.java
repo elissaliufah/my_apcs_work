@@ -11,7 +11,7 @@ public class Reverse{
 	//single equals is setting double equal checking
 	//second parameter for for loop is checking as long as i blank is true then run it
 	
-	//ask Ramya why minus 1?
+	//ask Ramya why minus 1? it's because index is one less than length and they need to match
 	
 	
 	
