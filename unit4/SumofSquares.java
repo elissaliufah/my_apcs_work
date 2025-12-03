@@ -7,15 +7,24 @@ public class SumofSquares{
 		return value;//because function is int it has to return an int
 	}
 	
-	
+	public static void testsumofSquares(int n, int expected){
+		int result = sumofSquares(n);
+		System.out.println("number:" + n + " expected:" + expected + " result:" + result);
+        
+        if (result == expected)
+            System.out.println("good");
+        else
+            System.out.println("bad");
+		
+	}
 	
 	public static void main(String[] args){
-		System.out.println(sumofSquares(1));
-		System.out.println(sumofSquares(2));
-		System.out.println(sumofSquares(3));
-		System.out.println(sumofSquares(4));
-		System.out.println(sumofSquares(5));
-		System.out.println(sumofSquares(67));
+		testsumofSquares(1,1);
+		testsumofSquares(2,5);
+		testsumofSquares(3,14);
+		testsumofSquares(4,30);
+		testsumofSquares(5,55);
+		testsumofSquares(67, 102510);
 	}
 
 

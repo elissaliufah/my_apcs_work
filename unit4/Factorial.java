@@ -7,18 +7,26 @@ public class Factorial{
 		return fact;
 	}
 	
+	public static void testFactorial(int n, int expected){
+		int result = factorial(n);
+		System.out.println("Number: " + n + "Result: " + result + "Expected: " + expected);
+		if(result == expected){
+			System.out.println("Gg");
+		}else{
+			System.out.println("no gg");
+		}
+		
+	}
 	
 	
 	public static void main(String[] args){
-		System.out.println(factorial(0));
-		System.out.println(factorial(1));
-		System.out.println(factorial(2));
-		System.out.println(factorial(3));
-		System.out.println(factorial(4));
-		System.out.println(factorial(5));
+		testFactorial(0, 1);
+		testFactorial(1, 1);
+		testFactorial(2, 2);
+		testFactorial(3, 6);
+		testFactorial(4, 24);
+		testFactorial(5, 120);
 	}
-
-
 
 
 }

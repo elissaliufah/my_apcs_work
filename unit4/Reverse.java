@@ -13,36 +13,28 @@ public class Reverse{
 	
 	//ask Ramya why minus 1? it's because index is one less than length and they need to match
 	
-	
+	public static void testReverse(String string, String expected){
+		String result = reverse(string);
+		System.out.println("String: " + string + "Result: " + result + "Expected: " + expected);
+		if(result.equals(expected)){
+			System.out.println("Gucci");
+		}else{
+			System.out.println("naw");
+		}
+		
+	}
 	
 	public static void main(String[] args){
-		System.out.println(reverse("bad"));
-		System.out.println(reverse("Hello, world!"));
-		System.out.println(reverse("tacocat"));
-		System.out.println(reverse("mom"));
-		System.out.println(reverse("eta"));
-		System.out.println(reverse("poop"));
+		testReverse("bad", "dab");
+		testReverse("Hello, world!", "!dlrow ,olleH");
+		testReverse("tacocat", "tacocat");
+		testReverse("mom", "mom");
+		testReverse("eta", "ate");
+		testReverse("poop", "poop");
 	}
 
 }
 
-
-//public class Reverse 
-	//public static String reverse(String str){
-		//String flip = ""; 
-		//for(int i = str.length()-1; i >= 0; i--){
-			//flip += str.charAt(i);
-		//}
-		//return flip; 
-	//}
-	
-	//public static void main(String[] args) {
-		//System.out.println(reverse("bad"));
-		//System.out.println(reverse("Hello, world!"));
-		//System.out.println(reverse("tacocat"));
-		//System.out.println(reverse("What's up?"));
-	//}
-//}
 
 
 

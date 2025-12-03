@@ -13,13 +13,24 @@ public class CountOccurences{
 		//once it gets to the point that the whole string is finished and you try to check for i, i+str.length() it's not possible!
 	}
 	
+	public static void testcountOccurences(String full, String str, int expected){
+		int result = countOccurences(full, str);
+		System.out.println("String: " + full + "Mini string " + str + "Result: " + result + "Expected: " + expected);
+		if(result == expected){
+			System.out.println("Gg");
+		}else{
+			System.out.println("no gg");
+		}
+		
+	}
+	
 	
 	public static void main(String[] args){
-		System.out.println(countOccurences("Mississippi", "iss"));
-		System.out.println(countOccurences("banananana", "na"));
-		System.out.println(countOccurences("How much wood would a woodchuck chuck if a woodchuck could chuck wood", "wood"));
-		System.out.println(countOccurences("How much wood would a woodchuck chuck if a woodchuck could chuck wood", "chuck"));
-		System.out.println(countOccurences("How much wood would a woodchuck chuck if a woodchuck could chuck wood", "woodchuck"));
+		testcountOccurences("Mississippi", "iss", 2);
+		testcountOccurences("banananana", "na", 4);
+		testcountOccurences("How much wood would a woodchuck chuck if a woodchuck could chuck wood", "wood", 4);
+		testcountOccurences("How much wood would a woodchuck chuck if a woodchuck could chuck wood", "chuck", 4);
+		testcountOccurences("How much wood would a woodchuck chuck if a woodchuck could chuck wood", "woodchuck", 2);
 	}
 
 }
