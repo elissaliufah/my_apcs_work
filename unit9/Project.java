@@ -4,8 +4,8 @@ import java.util.*;
  public class Project extends PApplet{
 	private int gameState = 0; 
 	 PImage actor;
-    public void settings() // 4
-    {
+    public void settings(){
+    
         fullScreen();  
     }
     
@@ -22,9 +22,9 @@ import java.util.*;
     }
     
     public void drawStart() {
-		background(365);
+		background(255);
 		
-		text("Guess the Person", 300, 100);
+		text("THE FOOD COURT", width/2, height/2);
 		fill(0);
 		textSize(75);
 		textAlign(CENTER);
