@@ -2,79 +2,93 @@ import processing.core.*;
 import java.util.*;  
  
 public class ProjectMain extends PApplet{
+	
+	PImage play;
+	PImage bg;
+	PImage sale;
+	PImage kessner;
 	private int gameState = 0;
-	private float x = 225;
-	private float y = 300;
-	private float w = 175;
-	private float h = 150;
-	private float round = 30;
-	ArrayList<Scene> scenes = new ArrayList<Scene>();
-	//ArrayList <Job> jobs;
-	public void settings()
-		{
+
+	public void settings(){
        fullScreen();  
-		}
+	}
    
     public void setup() {
-
-		scenes.add(new SceneLawyers(this));
+		
 	}
    
     public void draw(){
-		if (gameState == 0) {
-		drawStart();
-		}
-		else if(gameState == 1){
-		scenes.get(0).display();
+		if (gameState == 0){
+			drawStart();
+		}else if(gameState == 1){
+			drawGame();
 		}
 	}
    
     public void drawStart() {
-		background(210,248,243);
+		background(0);
 
-		fill(0);
-		textSize(50);
+		fill(255,255,255);
+		textSize(width/8);
 		textAlign(CENTER);
-		text("Pick a Job to learn more", width/2, 100);
+		text("Black Friday", width/2, height/2);
+		
+		play = loadImage("play.png");
+		play.resize(play.width / 2, play.height / 2);
+		imageMode(CENTER);
+		image(play, width/2, height/2 + height/6);
 
+		sale = loadImage("sale.png");
+		sale.resize(sale.width / 2, sale.height / 2);
+		imageMode(CENTER);
+		image(sale, width/2 + width/3 + width/15, height/2 - height/30);
+		
+		bg = loadImage("floor.jpg");
+		bg.resize(bg.width/3, bg.height/3);
+		
+		kessner = loadImage("kessner.png");
+		kessner.resize(kessner.width, kessner.height);
+		}
 
-		rectMode(CENTER);
-		fill(255,192,203);
-		rect(x,y,w,h,round);
-		rect(x*2.5f,y,w,h,round);
-		rect(x*4f,y,w,h,round);
-		rect(x*5.5f,y,w,h,round);
-		rect(x,y*2f,w,h, round);
-		rect(x*2.5f,y*2f,w,h, round);
-		rect(x*4f,y*2f,w,h, round);
-		rect(x*5.5f,y*2f,w,h, round);
-
+	public void mousePressed(){
+		if(mouseX > width/2 - play.width/5 && mouseX < width/2 + play.width/2 && mouseY > height/2 + height/6 - play.height/2 && mouseY < height/2 + height/6 + play.height/2){
+			gameState = 1;
+		}
+		if(mouseX > width/2 - play.width/5 && mouseX < width/2 + play.width/2 && mouseY > height/2 + height/6 - play.height/2 && mouseY < height/2 + height/6 + play.height/2){
+			gameState = 1;
+		}
+	}
+	
+	public void drawGame(){
+		int x = bg.width/2;
+		int y = bg.height/2;
+		imageMode(CENTER);
+		image(bg, x, y);
+		for(int i = 0; i < width/25; i++){
+			for(int j = 0; j < width/20; j++){
+				image(bg, x, y);
+				x += bg.width/2 + bg.width/12;
+			}
+			x = bg.width/2;
+			y += bg.height/2 + bg.height/8;
+		}
+		
 		fill(0);
-		textSize(30);
-		text("Lawyers", x,y-100);
-		text("Financial Analysts", x*2.5f,y-100);
-		text("Computer programmers", x*4f, y-100);
-		text("Architects", x*5.5f,y-100);
-		text("Biomedical Engineers", x,y*2f-100);
-		text("Psychologists", x*2.5f,y*2f-100);
-		text("Emergency medicince", x*4f,y*2f-100);
-		text("Firefighters", x*5.5f,y*2f-100);
-
-
-		//for(Job a: jobs){
-		//a.drawJobBox();
-		}
-
-		public void mousePressed(){
-		if(mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h){
-		gameState = 1;
-		}
-		}
+		textSize(width/12);
+		textAlign(CENTER);
+		text("CHOOSE YOUR PLAYER", width/2, height/7);
+		
+		imageMode(CENTER);
+		image(kessner, width/4, height/3);
+		
+	}
+	
+		
+		
 
 		   
-			public static void main(String[] args) {
-		PApplet.main("ProjectMain");
-
+		public static void main(String[] args) {
+			PApplet.main("ProjectMain");
 
 		}
 }
