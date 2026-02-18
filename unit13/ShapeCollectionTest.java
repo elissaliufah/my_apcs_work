@@ -9,7 +9,7 @@ public class ShapeCollectionTest{
         test.addShape("Hexagon", 6);
         test.addShape("Heptagon", 7);
 
-		System.out.println("Square Number of Sides" + test.numberSides("Square"));
+		System.out.println("Square Number of Sides: " + test.numberSides("Square"));
 		
 		System.out.println("Average Sides: " + test.avgSides(test.shapes));
 		

@@ -6,7 +6,7 @@ public class Shape{
 	private int sides;
 	
 	
-	public Shape(String nameIn, int sidesIn){
+	public Shape(String name, int sides){
 	//input of public constructor setting customization
 	//public member function
 		this.name = name;
