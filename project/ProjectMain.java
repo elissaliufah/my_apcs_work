@@ -16,13 +16,18 @@ public class ProjectMain extends PApplet{
 	private int gameState = 0;
 	private int player = 0;
 	private int choose = 0;
+	private int vx;
+	private int vy;
+	private int px;
+	private int py;
 
 	public void settings(){
        fullScreen();  
 	}
    
     public void setup() {
-		
+		px = width/2;
+		py = height/2;
 	}
    
     public void draw(){
@@ -121,6 +126,17 @@ public class ProjectMain extends PApplet{
 				kira.resize(kira.width/2, kira.height/2);
 			}
 		}
+		if(gameState == 3){
+			if(keyCode == RIGHT) {
+			  vx = width/100;
+			} else if (keyCode == LEFT) {
+			  vx = -(width/100);
+			} else if (keyCode == UP) {
+			  vy = -(height/100);
+			} else if (keyCode == DOWN) {
+			  vy = height/100;
+			}
+		}
 	}
 	
 	public void drawChoose(){
@@ -181,34 +197,56 @@ public class ProjectMain extends PApplet{
 		}
 		if(player == 0){
 			imageMode(CENTER);
-			image(kessner, width/2, height/2);
+			image(kessner, px, py);
+			px += vx;
+			py += vy;
 		}
 		if(player == 1){
 			imageMode(CENTER);
-			image(witman, width/2, height/2);
+			image(witman, px, py);
+			px += vx;
+			py += vy;
 		}
 		if(player == 2){
 			imageMode(CENTER);
-			image(sadie, width/2, height/2);
+			image(sadie, px, py);
+			px += vx;
+			py += vy;
 		}
 		if(player == 3){
 			imageMode(CENTER);
-			image(lexi, width/2, height/2);
+			image(lexi, px, py);
+			px += vx;
+			py += vy;
 		}
 		if(player == 4){
 			imageMode(CENTER);
-			image(ally, width/2, height/2);
+			image(ally, px, py);
+			px += vx;
+			py += vy;
 		}
 		if(player == 5){
 			imageMode(CENTER);
-			image(kira, width/2, height/2);
+			image(kira, px, py);
+			px += vx;
+			py += vy;
 		}
 	}
-	
+    
+    public void keyReleased() {
+		if (gameState == 3) {
+			if (keyCode == LEFT || keyCode == RIGHT) {
+				vx = 0;
+			}
+			if (keyCode == UP || keyCode == DOWN) {
+				vy = 0;
+			}
+		}
+	}
 
 		   
-		public static void main(String[] args) {
-			PApplet.main("ProjectMain");
+	public static void main(String[] args) {
+		PApplet.main("ProjectMain");
 
-		}
+	}
 }
