@@ -3,7 +3,7 @@ import java.util.*;
 public class AcademicClassTest{
 	public static void main(String[] args){
 		AcademicClass test = new AcademicClass();
-   
+    
 		test.addStudent("Kira", 6);
         test.addStudent("Elissa", 7);
 		test.addStudent("Lexi", 13);

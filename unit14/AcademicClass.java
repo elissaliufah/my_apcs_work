@@ -23,7 +23,7 @@ public class AcademicClass{
             System.out.println(s.getName());
         }
 		System.out.println(this.teacher.getName());
-	}
+	} 
 	
 	public ArrayList <Student> fav(int n){
 		ArrayList<Student> favN = new ArrayList<Student>();
