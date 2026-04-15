@@ -1,14 +1,14 @@
 import processing.core.*;
 import java.util.*;  
 
-public class Kessner implements Player{
-    public Kessner(){
+public class Witman implements Player{
+    public Witman(){
         
     }
 
     public String getName()
     {
-        return "Kessner";
+        return "Witman";
     }
 
     public void keyPressed()
