@@ -13,6 +13,8 @@ public class ProjectMain extends PApplet{
 	PImage ally;
 	PImage kira;
 	PImage bag;
+	PImage motorcycle;
+	PImage star;
 	private int gameState = 0;
 	private int player = 0;
 	private int choose = 0;
@@ -20,6 +22,7 @@ public class ProjectMain extends PApplet{
 	private int vy;
 	private int px;
 	private int py;
+	private int score;
 
 	public void settings(){
        fullScreen();  
@@ -66,6 +69,12 @@ public class ProjectMain extends PApplet{
 		bag = loadImage("bag.png");
 		bag.resize(bag.width/2, bag.height/2);
 		
+		motorcycle = loadImage("motorcycle.png");
+		motorcycle.resize(motorcycle.width/2, motorcycle.height/2);
+		
+		star = loadImage("star.png");
+		star.resize(star.width/4, star.height/4);
+		
 		kessner = loadImage("kessner.png");
 		
 		witman = loadImage("witman.png");
@@ -77,7 +86,6 @@ public class ProjectMain extends PApplet{
 		ally = loadImage("ally.png");
 		
 		kira = loadImage("kira.png");
-		
 		}
 
 	public void mousePressed(){
@@ -144,27 +152,33 @@ public class ProjectMain extends PApplet{
 		fill(0);
 		textSize(width/12);
 		textAlign(CENTER);
-		text("CHOOSE YOUR PLAYER", width/2, height/7);
+		text("CHOOSE YOUR DASHER", width/2, height/7);
 		
 		imageMode(CENTER);
 		image(kessner, width/4, height/3);
+		image(star, width/4, height/3 + (star.height*2));
 		
 		image(bag, width/4 + kessner.width - width/40, height/3);
 		
 		imageMode(CENTER);
 		image(witman, width/2, height/3);
+		image(star, width/2, height/3 + (star.height*2));
 		
 		imageMode(CENTER);
 		image(sadie, width/2 + width/4, height/3);
+		image(star, width/2 + width/4, height/3 + (star.height*2));
 		
 		imageMode(CENTER);
 		image(lexi, width/4, height/2 + height/4);
+		image(star, width/4, height/2 + height/4 + (star.height*2));
 		
 		imageMode(CENTER);
 		image(ally, width/2, height/2 + height/4);
+		image(star, width/2, height/2 + height/4 + (star.height*2));
 		
 		imageMode(CENTER);
 		image(kira, width/2 + width/4, height/2 + height/4);
+		image(star, width/2 + width/4, height/2 + height/4 + (star.height*2));
 		
 		choose = 1;
 	}
@@ -180,6 +194,7 @@ public class ProjectMain extends PApplet{
 		text("& ANGRY KARENS(GAME OVER).", width/2, height/4 + height/6);
 		text("FINISH AS MANY ORDERS AS POSSIBLE!", width/2, height/2 + height/20);
 		text("Press space to start", width/2, height/2 + height/5);
+		score = 0;
 	}
 	
 	public void drawGame(){
@@ -195,6 +210,12 @@ public class ProjectMain extends PApplet{
 			x = bg.width/2;
 			y += bg.height/2 + bg.height/8;
 		}
+		textSize(width/40);
+		text("Score: " + score, width - width/15, 0 + height/20);
+		rect(width/2 - (width/6)/2, 0 + (height/10)/18, width/6, height/10);
+		rect(0, height/2 - (width/6)/2, height/10, width/6);
+		rect(width/2 - (width/6)/2, height - height/10, width/6, height/10);
+		image(motorcycle, width - motorcycle.width/2, height/2);
 		if(player == 0){
 			imageMode(CENTER);
 			image(kessner, px, py);
@@ -231,6 +252,9 @@ public class ProjectMain extends PApplet{
 			px += vx;
 			py += vy;
 		}
+		if(dist(px, py, width/2 - (width/6)/2, 0 + (height/10)/18) < kessner.width + (width/6)/3){
+			score += 1;
+		}
 	}
     
     public void keyReleased() {
@@ -242,6 +266,12 @@ public class ProjectMain extends PApplet{
 				vy = 0;
 			}
 		}
+	}
+	
+	public void timer(){
+		
+		
+		
 	}
 
 		   
