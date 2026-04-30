@@ -756,7 +756,6 @@ public class ProjectMain extends PApplet {
 		cartActive = false;
 		cartSpawnTimer = millis();
 
-		// collision flags
 		canScoreTop = true;
 		canScoreLeft = true;
 		canScoreBottom = true;
